@@ -41,15 +41,6 @@ function melfort-hear {
                 echo "See ya!"
                 break
         fi
-#format output using awk
-#UNIX to date: https://stackoverflow.com/questions/31476602/unix-time-to-date-and-replace-in-bash-using-awk
-#Skip to the rest: https://www.cyberciti.biz/faq/unix-linux-bsd-appleosx-skip-fields-command/
-        awk -v user=$USER_NAME ' {
-            $1 = strftime("%d-%m-%Y %H:%M:%S",$1);
-            printf "%s at %s said: ", user, $1;
-            $1="";
-            print;
-            }
-            ' ${users_messages[$USER_NAME]}
+       ./output.sh $USER_NAME ${users_messages[$USER_NAME]}
     done
 }
