@@ -30,7 +30,7 @@ function melfort-hear {
 
     #Prompt for user's message
     PS3="Choose user's messages you want to hear "
-    select USER_NAME in "${!users_messages[@]}" STOP
+    select USER_NAME in "${!users_messages[@]}" ALL STOP
     do
         if [ "$USER_NAME" == "" ] 
             then
@@ -40,7 +40,15 @@ function melfort-hear {
             then    
                 echo "See ya!"
                 break
+        elif [ "$USER_NAME" == ALL ]
+            then
+                for name in ${!users_messages[@]}
+                    do
+                        sed "s/^/$name /;" ${users_messages[$name]} 2>/dev/null
+                    done | sort -nk 2 | ./output.sh
+                break
         fi
-       ./output.sh $USER_NAME ${users_messages[$USER_NAME]}
+            sed "s/^/$USER_NAME /;" ${users_messages[$USER_NAME]} 2>/dev/null | ./output.sh
+
     done
 }
