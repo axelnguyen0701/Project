@@ -2,7 +2,7 @@
 
 #=============================================================
 #CONSTANTS
-MELFORT_ROOT=/var/melfort
+export MELFORT_ROOT=/var/melfort
 
 #==============================================================
 #MELFORT SAY
