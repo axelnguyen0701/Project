@@ -5,4 +5,18 @@ Under the instruction of Nathan Taylor in class CMPT220
 
 #======================================================
 ANSWER REGARDING IMPLEMENTATION
+#About Melfort chat service:
+1. The chat service will prune messages sent before November 30th 2020. This is because most of the chat before that
+date is testing message. The chat after Nov 30th really boils up so that why I implement it this way, and to keep all
+the good memories here, I will keep all the messages sent after 30th.
+2. I implement the select command, with the PS3 prompting for a username, ALL, or STOP. This will avoid reading into
+every people's messages, which really accelerate the speed of the service. Of course, when people want to, they can read
+all.
+
+#======================================================
+USAGE
+You need to source chat.sh, and blog.sh before running any melfort command
+melfort-say <your message>: Send a new message to everyone
+melfort-hear <your message>: Read messages
+
 
