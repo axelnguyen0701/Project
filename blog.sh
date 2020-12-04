@@ -27,16 +27,16 @@ function melfort-open {
     if [[ $# == "0" ]] 
         then echo "Usage: melfort-open <user> <topic> where <user> is optional"
     elif [[ $# == "1" ]]; then #without <user>
-        file=$MELFORT_ROOT/$USER/posts/$1
-        if [[ -f $file ]]; then
-            $EDITOR $file
+        file="$MELFORT_ROOT/$USER/posts/$1"
+        if [[ -f "$file" ]]; then
+            $EDITOR "$file"
         else
             echo "$1 does not exists. Create it by running melfort-new $1."
         fi
     else #with user and topic
-        file=$MELFORT_ROOT/$1/posts/$2
-        if [[ -f $file ]]; then
-            $PAGER $file
+        file=$MELFORT_ROOT/$1/posts/"$2"
+        if [[ -f "$file" ]]; then
+            $PAGER "$file"
         else
             echo "User or topic not found. Please try again"
         fi
