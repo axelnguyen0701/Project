@@ -58,4 +58,10 @@ function output_search {
                 print "Search results:"}
          {printf "[%s] by [%s]\n", $6, $4}
          END {print(NR<1)?"NOTHING":"END OF SEARCH"}'
+         }
+
+#=================================================
+#Melfort index
+function melfort-index {
+ find $MELFORT_ROOT/*/posts/ -type f 2>/dev/null| xargs egrep -wos "#\w*" | ./index.awk | ./user_tag.awk | sort
 }
