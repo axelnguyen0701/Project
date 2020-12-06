@@ -1,6 +1,6 @@
 #!/usr/bin/gawk -f
 BEGIN {FS="#";
-       path = "./path.awk"}
+       path = "~nguyent283/cmpt220/project/path.awk"}
 { print $1 |& path 
   close(path, "to")
 

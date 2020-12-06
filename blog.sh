@@ -5,6 +5,7 @@ if [[ -z $EDITOR ]]
 then export $EDITOR=vim
 fi
 MELFORT_ROOT=/var/melfort
+FILE_PATH=~nguyent283/cmpt220/project
 #===============================================
 #Melfort-new
 function melfort-new {
@@ -63,5 +64,5 @@ function output_search {
 #=================================================
 #Melfort index
 function melfort-index {
- find $MELFORT_ROOT/*/posts/ -type f 2>/dev/null| xargs egrep -wos "#\w*" | ./index.awk | ./user_tag.awk | sort
+ find $MELFORT_ROOT/*/posts/ -type f 2>/dev/null| xargs egrep -wos "#\w*" | $FILE_PATH/index.awk | $FILE_PATH/user_tag.awk | sort
 }
