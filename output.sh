@@ -10,11 +10,11 @@ awk 2>/dev/null '
         #UNIX time to date
         $2 = strftime("%d-%m-%Y %H:%M:%S",$2);
         #formatting
-        printf "[%s at %s] said: ", $1, $2;
+        printf "[\033[1;32m%s\033[0m at\033[1;31m %s\033[0m] said: ", $1, $2;
         #print rest columns
         $1=""; $2=""
         print substr($0, index($0, " ")+1, 219);}
-'
+' | uniq -ui | sed -r "s/(.*)\1{6}//g"
 
 if [[ $? != 0 ]]
     then 
