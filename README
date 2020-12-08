@@ -8,11 +8,17 @@ ANSWER REGARDING IMPLEMENTATION
 #About Melfort chat service:
 1. The chat service will prune messages sent before November 30th 2020. This is because most of the chat before that
 date is testing message. The chat after Nov 30th really boils up so that why I implement it this way, and to keep all
-the good memories here, I will keep all the messages sent after 30th.
+the good memories here, I will keep all the messages sent after 30th. Of course you have the choice to see less messages
+with tail/ head.
 2. I implement the select command, with the PS3 prompting for a username, ALL, or STOP. This will avoid reading into
-every people's messages, which really accelerate the speed of the service. Of course, when people want to, they can read
-all.
-
+every people's messages, which really accelerate the speed of the service.
+#About Melfort blog service:
+1. Anchored . or .. with /  is forbidden since the bash may expand the path.
+2. For my posts and messages, I set 755 so that people can only read or execute, not write to my files. If read or
+execute is unset, people will unable to read my file (with vim if does not have execution bits).  If I set write to my
+files, my words are at risk of being doctored, NOOOOOO!
+3. melfort open topic in $EDITOR since it is my post, and I have the bits to write it while with the user flag, it's
+another users' posts, which I do not have write permission (so why bother open in vim?).
 #======================================================
 USAGE
 You need to source chat.sh, and blog.sh before running any melfort command

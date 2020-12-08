@@ -10,12 +10,14 @@ FILE_PATH=~nguyent283/cmpt220/project
 #Melfort-new
 function melfort-new {
     if [[ -z $1 ]] 
-        then echo "Usage: melfort-new <topic>"
+        then echo "Usage: melfort-new <topic>";
+    elif [[ $1 =~ ^((\.)|(\.\.)).* ]]; then
+        echo "Invalid characters: ., .., or / is forbiddent"
     else
-        file=$MELFORT_ROOT/$USER/posts/$1
+        file="$MELFORT_ROOT/$USER/posts/$1"
             if [[ ! -f $file ]] #if file does not exist
                 then
-                    $EDITOR $file 
+                    $EDITOR "$file" 
                 else
                     echo "$1 already exists. Run melfort-open $1 to read."
             fi      
