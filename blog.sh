@@ -59,7 +59,7 @@ function melfort-search {
 function output_search {
     awk 'BEGIN {FS="/"
                 print "Search results:"}
-         {printf "[%s] by [%s]\n", $6, $4}
+         {printf "[\033[1;32m%s\033[0m] by [\033[1;31m%s\033[0m]\n", $6, $4}
          END {print(NR<1)?"NOTHING":"END OF SEARCH"}'
          }
 
